@@ -21,7 +21,22 @@ Diese Dokumentation dient als umfassender Leitfaden für Entwickler und Interess
 
 ### 2.2. Integration in WooCommerce
 - Wie der Token in WooCommerce integriert ist.
-- Beschreibung der PHP-Snippets und ihrer Funktionen.
+- Beschreibung der PHP-OZMX-Token-Integration in WooCommerce und ihrer Funktionen.
+
+Der Code enthält die Integration von OZMX-Token in eine WooCommerce-Website. Hier sind die Hauptfunktionen und ihre Beschreibungen:
+
+1. **Globale Einstellungen initialisieren**: Zu Beginn des Codes werden einige globale Einstellungen initialisiert, die den Gesamtbestand an OZMX-Token und die Anzahl der generierten und übertragenen Token speichern.
+2. **Neuen Endpunkt für das Benutzerprofil registrieren**: Ein neuer Endpunkt namens "ozmx_token" wird für das Benutzerprofil in WooCommerce registriert.
+3. **Benutzerdefiniertes Feld zur WooCommerce-Kontoseite hinzufügen**: Ein benutzerdefiniertes Feld wird zur Kontoseite hinzugefügt, das es den Benutzern ermöglicht, ihre BRC-20-Token-Wallet-Adresse einzugeben und zu aktualisieren.
+4. **Benutzerdefinierten Tab zur WooCommerce-Kontomenü hinzugefügen**: Ein neuer Tab namens "OZMX Token" wird zum Kontomenü hinzugefügt.
+5. **Token Generierung bei Kaufabschluss**: Wenn eine Bestellung abgeschlossen wird, werden OZMX-Token basierend auf dem Bestellwert generiert und dem Benutzerkonto gutgeschrieben.
+6. **Token-Rückbuchung bei Stornierung der Bestellung**: Wenn eine Bestellung storniert wird, werden die zuvor generierten Token vom Benutzerkonto abgebucht.
+7. **Token Übertragung an Benutzer**: Eine Funktion, die es ermöglicht, Token an einen bestimmten Benutzer zu übertragen.
+8. **Neuen Menüpunkt im Adminbereich hinzufügen**: Ein neuer Menüpunkt namens "OZMX" wird zum WordPress-Adminbereich hinzugefügt, der es den Administratoren ermöglicht, den Tokenstand und die Wallet-Adressen der Benutzer zu überprüfen.
+9. **Token-Transfer-Handler**: Eine Funktion, die den Token-Transfer von einem Benutzerkonto zu seiner externen Wallet behandelt.
+10. **Anzeige von Transaktionen in umgekehrter Reihenfolge**: Die Transaktionen in "OZMX Doku / OZMX Token Transaktionsdokumentation" werden nun so angezeigt, dass die aktuellsten Einträge oben stehen.
+11. **Kontrollkästchen "An eine andere Adresse liefern" und "Create an account" auf der Checkout-Seite**.
+
 
 ### 2.3. Sicherheit
 - Maßnahmen zur Gewährleistung der Sicherheit von Transaktionen und Daten.
