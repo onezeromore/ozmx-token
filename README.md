@@ -5,10 +5,10 @@
 ### 1.1. Überblick
 
 #### Was ist der OZMX Token?
-Der OZMX Token ist eine digitale Währung, die in die WooCommerce-Plattform integriert ist und es Benutzern ermöglicht, Transaktionen durchzuführen und Belohnungen basierend auf ihren Einkäufen zu erhalten.
+Der OZMX Token ist eine Community Token, der in die WooCommerce-Plattform integriert ist und es Benutzern ermöglicht, Transaktionen durchzuführen und Belohnungen basierend auf ihren Einkäufen zu erhalten.
 
 #### Vision und Ziel des OZMX Tokens
-Unsere Vision ist es, den E-Commerce-Bereich zu revolutionieren, indem wir eine nahtlose Integration von Kryptowährungen in gängige E-Commerce-Plattformen ermöglichen. Das Ziel des OZMX Tokens ist es, sowohl für Shop-Betreiber als auch für Kunden einen Mehrwert zu schaffen, indem Transaktionen vereinfacht und Belohnungen für treue Kunden bereitgestellt werden.
+Unsere Vision ist es, den E-Commerce-Bereich zu revolutionieren, indem wir eine nahtlose Integration von Krypto Token in gängige E-Commerce-Plattformen ermöglichen. Das Ziel des OZMX Tokens ist es, sowohl für Shop-Betreiber als auch für Kunden einen Mehrwert zu schaffen, indem Transaktionen vereinfacht und Belohnungen für treue Kunden bereitgestellt werden.
 
 ### 1.2. Zweck der Dokumentation
 Diese Dokumentation dient als umfassender Leitfaden für Entwickler und Interessierte, die mehr über die Integration und Funktionsweise des OZMX Tokens erfahren möchten.
