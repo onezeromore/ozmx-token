@@ -20,22 +20,52 @@ Diese Dokumentation dient als umfassender Leitfaden für Entwickler und Interess
 - Erklärung des BRC-20 Token-Standards.
 
 ### 2.2. Integration in WooCommerce
-- Wie der Token in WooCommerce integriert ist.
-- Beschreibung der PHP-OZMX-Token-Integration in WooCommerce und ihrer Funktionen.
 
-Der Code enthält die Integration von OZMX-Token in eine WooCommerce-Website. Hier sind die Hauptfunktionen und ihre Beschreibungen:
+- **Allgemeine Integration**: Wie der Token in WooCommerce integriert ist.
 
-1. **Globale Einstellungen initialisieren**: Zu Beginn des Codes werden einige globale Einstellungen initialisiert, die den Gesamtbestand an OZMX-Token und die Anzahl der generierten und übertragenen Token speichern.
-2. **Neuen Endpunkt für das Benutzerprofil registrieren**: Ein neuer Endpunkt namens "ozmx_token" wird für das Benutzerprofil in WooCommerce registriert.
-3. **Benutzerdefiniertes Feld zur WooCommerce-Kontoseite hinzufügen**: Ein benutzerdefiniertes Feld wird zur Kontoseite hinzugefügt, das es den Benutzern ermöglicht, ihre BRC-20-Token-Wallet-Adresse einzugeben und zu aktualisieren.
-4. **Benutzerdefinierten Tab zur WooCommerce-Kontomenü hinzugefügen**: Ein neuer Tab namens "OZMX Token" wird zum Kontomenü hinzugefügt.
-5. **Token Generierung bei Kaufabschluss**: Wenn eine Bestellung abgeschlossen wird, werden OZMX-Token basierend auf dem Bestellwert generiert und dem Benutzerkonto gutgeschrieben.
-6. **Token-Rückbuchung bei Stornierung der Bestellung**: Wenn eine Bestellung storniert wird, werden die zuvor generierten Token vom Benutzerkonto abgebucht.
-7. **Token Übertragung an Benutzer**: Eine Funktion, die es ermöglicht, Token an einen bestimmten Benutzer zu übertragen.
-8. **Neuen Menüpunkt im Adminbereich hinzufügen**: Ein neuer Menüpunkt namens "OZMX" wird zum WordPress-Adminbereich hinzugefügt, der es den Administratoren ermöglicht, den Tokenstand und die Wallet-Adressen der Benutzer zu überprüfen.
-9. **Token-Transfer-Handler**: Eine Funktion, die den Token-Transfer von einem Benutzerkonto zu seiner externen Wallet behandelt.
-10. **Anzeige von Transaktionen in umgekehrter Reihenfolge**: Die Transaktionen in "OZMX Doku / OZMX Token Transaktionsdokumentation" werden nun so angezeigt, dass die aktuellsten Einträge oben stehen.
-11. **Kontrollkästchen "An eine andere Adresse liefern" und "Create an account" auf der Checkout-Seite**.
+- **Add a settings field to the WooCommerce > Settings > Products tab (add_bonus_percentage_setting)**:
+  - **Hook**: `woocommerce_product_settings`
+  - **Funktionen**: Keine spezifischen WooCommerce-Funktionen verwendet.
+  - **Beschreibung**: Dieser Abschnitt fügt eine Einstellung zum WooCommerce-Produkteinstellungsbereich hinzu. Basierend auf dem Changelog gibt es keine Hinweise darauf, dass dieser Hook geändert wurde. Daher sollte dieser Abschnitt kompatibel sein.
+
+- **Function to calculate the bonus (calculate_bonus)**:
+  - **Funktionen**: `wc_get_price_excluding_tax`, `get_option`
+  - **Beschreibung**: Dieser Abschnitt verwendet WooCommerce-spezifische Funktionen. Basierend auf dem Changelog gibt es keine Hinweise darauf, dass diese Funktionen geändert wurden. Daher sollte dieser Abschnitt kompatibel sein.
+
+- **Create the [product_bonus] shortcode (display_product_bonus)**:
+  - **Hook**: Kein Hook verwendet.
+  - **Funktionen**: `has_OZMID`, `calculate_bonus`
+  - **Beschreibung**: Dieser Abschnitt erstellt einen Shortcode, der den Bonus für ein Produkt anzeigt. Es werden keine spezifischen WooCommerce-Funktionen verwendet, daher sollte dieser Abschnitt kompatibel sein.
+
+- **Check if product has OZMID and if OZMX tokens should be generated (has_OZMID)**:
+  - **Funktionen**: `get_the_terms`, `get_term_meta`
+  - **Beschreibung**: Dieser Abschnitt überprüft, ob ein Produkt OZMID hat und ob OZMX-Token generiert werden sollten. Basierend auf dem Changelog gibt es keine Hinweise darauf, dass diese Funktionen geändert wurden. Daher sollte dieser Abschnitt kompatibel sein.
+
+- **Add bonus to cart page (add_bonus_to_cart)**:
+  - **Hook**: `woocommerce_cart_item_name`
+  - **Funktionen**: `has_OZMID`, `calculate_bonus`
+  - **Beschreibung**: Dieser Abschnitt fügt den Bonus zur Warenkorbseite hinzu. Basierend auf dem Changelog gibt es keine Hinweise darauf, dass dieser Hook geändert wurde. Daher sollte dieser Abschnitt kompatibel sein.
+
+- **Add bonus to checkout page (add_bonus_to_checkout)**:
+  - **Hook**: `woocommerce_checkout_cart_item_name`
+  - **Funktionen**: `add_bonus_to_cart`
+  - **Beschreibung**: Dieser Abschnitt fügt den Bonus zur Checkout-Seite hinzu. Basierend auf dem Changelog gibt es keine Hinweise darauf, dass dieser Hook geändert wurde. Daher sollte dieser Abschnitt kompatibel sein.
+
+- **Beschreibung der OZMX-Token-Integration.php in WooCommerce und ihrer Funktionen**:
+  - Der Code enthält die Integration von OZMX-Token in eine WooCommerce-Website. Hier sind die Hauptfunktionen und ihre Beschreibungen:
+
+    1. **Globale Einstellungen initialisieren**: Zu Beginn des Codes werden einige globale Einstellungen initialisiert, die den Gesamtbestand an OZMX-Token und die Anzahl der generierten und übertragenen Token speichern.
+    2. **Neuen Endpunkt für das Benutzerprofil registrieren**: Ein neuer Endpunkt namens "ozmx_token" wird für das Benutzerprofil in WooCommerce registriert.
+    3. **Benutzerdefiniertes Feld zur WooCommerce-Kontoseite hinzufügen**: Ein benutzerdefiniertes Feld wird zur Kontoseite hinzugefügt, das es den Benutzern ermöglicht, ihre BRC-20-Token-Wallet-Adresse einzugeben und zu aktualisieren.
+    4. **Benutzerdefinierten Tab zur WooCommerce-Kontomenü hinzugefügen**: Ein neuer Tab namens "OZMX Token" wird zum Kontomenü hinzugefügt.
+    5. **Token Generierung bei Kaufabschluss**: Wenn eine Bestellung abgeschlossen wird, werden OZMX-Token basierend auf dem Bestellwert generiert und dem Benutzerkonto gutgeschrieben.
+    6. **Token-Rückbuchung bei Stornierung der Bestellung**: Wenn eine Bestellung storniert wird, werden die zuvor generierten Token vom Benutzerkonto abgebucht.
+    7. **Token Übertragung an Benutzer**: Eine Funktion, die es ermöglicht, Token an einen bestimmten Benutzer zu übertragen.
+    8. **Neuen Menüpunkt im Adminbereich hinzufügen**: Ein neuer Menüpunkt namens "OZMX" wird zum WordPress-Adminbereich hinzugefügt, der es den Administratoren ermöglicht, den Tokenstand und die Wallet-Adressen der Benutzer zu überprüfen.
+    9. **Token-Transfer-Handler**: Eine Funktion, die den Token-Transfer von einem Benutzerkonto zu seiner externen Wallet behandelt.
+    10. **Anzeige von Transaktionen in umgekehrter Reihenfolge**: Die Transaktionen in "OZMX Doku / OZMX Token Transaktionsdokumentation" werden nun so angezeigt, dass die aktuellsten Einträge oben stehen.
+    11. **Kontrollkästchen "An eine andere Adresse liefern" und "Create an account" auf der Checkout-Seite**.
+
 
 
 ### 2.3. Sicherheit
